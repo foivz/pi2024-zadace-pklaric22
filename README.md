@@ -1,33 +1,18 @@
-# Inicijalne upute za izradu zadaća
-Poštovane kolegice i kolege, 
 
-čestitamo vam jer ste uspješno kreirali **repozitorij** koji ćete koristiti za izradu vašeg projekta, tj. za pisanje vaših triju zadaća. To će uključivati izradu dokumentacije i programskog kôda.
-
-Molim vas izmijenite ovaj dokument kako biste u njemu naveli naziv i kratak opis projekta koji obrađujete u vašim zadaćama, kao i vaše osobne podatke. Za upute o sintaksi koju možete koristiti u ovom dokumentu i kod pisanja vaše projektne dokumentacije obavezno pogledajte upute o sintaksi koje su dostupne na Moodleu, a dodatno i [ovaj link](https://guides.github.com/features/mastering-markdown/).
-
-A sada, vrijeme je za prvi korak rada na vašem projektu. 🙂 Za upis/opis vašeg programskog proizvoda molimo vas koristite **predložak** koji je naveden u nastavku. Započnite tako da kliknete na *olovku* u desnom gornjem kutu ovoga dokumenta te izbrišite sve što je iznad _Naziva projekta_, kao i sve upute koje su navedene u zagradama u predlošku ispod.
-
-# Naziv projekta
-(U redak iznad navedite naziv projekta koji ste dobili za analizu!)
+# Sustav za praćenje narudžbi u studentskom restoranu
 
 ## Podaci o studentu
-(Ispod promijenite samo drugi redak tablice!)
 
 Ime i prezime | E-mail adresa (FOI) | JMBAG | Github korisničko ime
 ------------  | ------------------- | ----- | ---------------------
-Ime i prezime | mojaadresa@foi.hr | 000000000 | githubuser
+Ime i prezime | pklaric22@student.foi.hr | 0016158515 | pklaric22
 
 
 ## Opis domene
-(Vlastitim riječima opišite domenu ili problem koji pokriva projekt vaše zadaće!)
+Odabir jela u studentskoj menzi ponekad može biti izazovan zbog širokog izbora menija. Svi studenti, a pogotovo brucoši su se nekada našli u situaciji da zbog nesigurnosti da probaju neko novo jelo konstantno naručuju ista jela. Pomoću aplikacije Studentaste studenti će moći vidjeti kako su njihovi kolege ocjenili različita jela te će im to dati novu perspektivu i olakšati odabir jela u menzi. Također, redovi u menzi su često vrlo dugi. Studentaste će studentima omogućiti stvaranje a la carte narudžbi kroz aplikaciju što će poboljšati protok narudžbi i smanjiti duge i naporne redove čekanja za naplatu na blagajni.
 
 ## Specifikacija projekta
-(Vlastitim riječima opišite zahtjeve za izradu ovog programskog proizvoda!)
+Zahtjevi za izradu ovog programskog rješenja uključivati će mogćnost ocjenjivanja okusa i količine hrane, komentiranje, mogućnost pregleda dnevnih i tjednih menija, naručivanje kroz aplikaciju, mogućnost skupljanja bodova te korištenje kupona za popuste
 
 ## Zadatak
-(U root repozitorija učitajte zadatak koji ste dobili i potom ovdje stavite link na njegovo otvaranje!)
-
-## Resursi
-(Zadaće je obvezno predati u obliku Wiki stranica na ovom repozitoriju. Slike i druge artefakte koje ćete koristiti na wiki stranicama smjestite u mapu dokumentacije u repozitoriju!)
-
-Svi resursi nalaze se u mapi _Documentation_.
+https://github.com/foivz/pi2024-zadace-pklaric22/blob/master/Zadatak%20-%20SCVZ.pdf
