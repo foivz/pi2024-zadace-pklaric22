@@ -19,6 +19,7 @@ namespace Studentaste
         public FrmLogin()
         {
             InitializeComponent();
+         
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -39,7 +40,10 @@ namespace Studentaste
                 if (LoggedStudent != null && LoggedStudent.Password == txtPassword.Text)
 
                 {
-                    MessageBox.Show("Uspješno!", "Obavijet", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Hide();
+                    FrmMainMenu frmMainMenu = new FrmMainMenu(LoggedStudent.IdStudent);
+                    frmMainMenu.ShowDialog();
+                    Close();
                 }
                 else
                 {

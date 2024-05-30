@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Studentaste.Models
 {
-    internal class Dish
+    public class Dish
     {
         public int IdDish { get; set; }
         public string Name { get; set; }
