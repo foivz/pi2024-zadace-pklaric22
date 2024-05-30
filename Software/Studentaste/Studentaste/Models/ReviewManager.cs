@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Studentaste.Models
 {
-    internal class ReviewManager
+    public class ReviewManager
     {
         public int IdManager {  get; set; }
         public int MinimumReviewCount { get; set; }
