@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Studentaste.Models
 {
-    public class Reviews
+    internal class Reviews
     {
         public int IdReview { get; set; }
         public int TasteRating { get; set; }

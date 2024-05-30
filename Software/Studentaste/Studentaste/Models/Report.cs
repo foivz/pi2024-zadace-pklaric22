@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Studentaste.Models
 {
-    public class Report
+    internal class Report
     {
         public int IdReport { get; set; }
         public DateTime CreationDate { get; set; }

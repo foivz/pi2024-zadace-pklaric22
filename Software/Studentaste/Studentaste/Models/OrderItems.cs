@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Studentaste.Models
 {
-    public class OrderItems
+    internal class OrderItems
     {
         public int IdOrderItem { get; set; }
         public int Quantity { get; set; }
