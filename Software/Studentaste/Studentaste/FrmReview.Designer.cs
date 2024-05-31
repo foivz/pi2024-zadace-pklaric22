@@ -37,7 +37,7 @@
             this.txtQuantityRating = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSubmitReview = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnDeleteReview = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDishes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,21 +118,22 @@
             this.btnSubmitReview.UseVisualStyleBackColor = true;
             this.btnSubmitReview.Click += new System.EventHandler(this.btnSubmitReview_Click);
             // 
-            // button2
+            // btnDeleteReview
             // 
-            this.button2.Location = new System.Drawing.Point(365, 197);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 26);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Obriši recenziju";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDeleteReview.Location = new System.Drawing.Point(365, 197);
+            this.btnDeleteReview.Name = "btnDeleteReview";
+            this.btnDeleteReview.Size = new System.Drawing.Size(127, 26);
+            this.btnDeleteReview.TabIndex = 10;
+            this.btnDeleteReview.Text = "Obriši recenziju";
+            this.btnDeleteReview.UseVisualStyleBackColor = true;
+            this.btnDeleteReview.Click += new System.EventHandler(this.btnDeleteReview_Click);
             // 
             // FrmReview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 267);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnDeleteReview);
             this.Controls.Add(this.btnSubmitReview);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtQuantityRating);
@@ -166,6 +167,6 @@
         private System.Windows.Forms.TextBox txtQuantityRating;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSubmitReview;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnDeleteReview;
     }
 }

@@ -24,6 +24,14 @@ namespace Studentaste.Repositories
             DB.CloseConnection();
         }
 
+        public static void DeleteReview(Reviews review)
+        {
+            string sql = $"DELETE FROM Reviews WHERE IdOrder = {review.Orders.IdOrder} AND IdDish = {review.Dishes.IdDish} AND IdStudent = {review.Student.IdStudent}";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
+
         public static Reviews GetReview(int orderId, int dishId, int studentId)
         {
             string sql = $"SELECT * FROM Reviews WHERE IdOrder = {orderId} AND IdDish = {dishId} AND IdStudent = {studentId}";

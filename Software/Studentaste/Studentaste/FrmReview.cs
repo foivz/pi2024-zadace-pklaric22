@@ -219,5 +219,44 @@ namespace Studentaste
             txtQuantityRating.Text = string.Empty;
             txtComment.Text = string.Empty;
         }
+
+        private void btnDeleteReview_Click(object sender, EventArgs e)
+        {
+            if (dgvDishes.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvDishes.SelectedRows[0];
+                var dishName = selectedRow.Cells["Dish"].Value.ToString();
+                var dish = GetDishByName(dishName);
+
+                if (dish != null)
+                {
+                    var review = ReviewRepository.GetReview(order.IdOrder, dish.IdDish, LoggedStudent.IdStudent);
+                    if (review != null)
+                    {
+                        DialogResult result = MessageBox.Show("Jeste li sigurni da želite obrisati recenziju?", "Potvrdi brisanje recenzije", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (result == DialogResult.Yes)
+                        {
+                            ReviewRepository.DeleteReview(review);
+                            MessageBox.Show("Recenzija uspješno izbrisana!");
+                            ClearTextBoxes();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Niste recenzirali ovo jelo.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Jelo nije pronađeno.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Izaberite jelo koje želite izbrisati.");
+            }
+        }
+
+
     }
 }
