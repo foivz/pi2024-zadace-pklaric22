@@ -27,5 +27,13 @@ namespace Studentaste
         {
 
         }
+
+        private void btnAllReviews_Click(object sender, EventArgs e)
+        {
+            FrmAllReviews frmAllReviews = new FrmAllReviews(LoggedStudent, this);
+            this.Hide();
+            frmAllReviews.ShowDialog();
+            this.Show();
+        }
     }
 }

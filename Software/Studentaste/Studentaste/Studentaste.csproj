@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAllReviews.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAllReviews.Designer.cs">
+      <DependentUpon>FrmAllReviews.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Repositories\OrdersRepository.cs" />
     <Compile Include="Repositories\ReviewRepository.cs" />
     <Compile Include="Repositories\StudentRepository.cs" />
+    <EmbeddedResource Include="FrmAllReviews.resx">
+      <DependentUpon>FrmAllReviews.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>

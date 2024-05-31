@@ -1,6 +1,8 @@
 ﻿using DBLayer;
 using Studentaste.Models;
 using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
 
 namespace Studentaste.Repositories
 {
@@ -57,6 +59,60 @@ namespace Studentaste.Repositories
             reader.Close();
             DB.CloseConnection();
             return review;
+        }
+
+        public static List<Reviews> GetAllReviews()
+        {
+            var reviewList = new List<Reviews>();
+
+            string sql = @"
+        SELECT r.IdReview, r.TasteRating, r.QuantityRating, r.Comment, r.ReviewDate, 
+               s.IdStudent, s.Username, 
+               d.IdDish, d.Name as DishName, 
+               r.IdOrder
+        FROM Reviews r
+        JOIN Students s ON r.IdStudent = s.IdStudent
+        JOIN Dishes d ON r.IdDish = d.IdDish";
+
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            while (reader.Read())
+            {
+                Reviews review = CreateReviewObject(reader);
+                reviewList.Add(review);
+            }
+            reader.Close();
+
+            DB.CloseConnection();
+            return reviewList;
+        }
+
+        private static Reviews CreateReviewObject(SqlDataReader reader)
+        {
+            return new Reviews
+            {
+                IdReview = int.Parse(reader["IdReview"].ToString()),
+                TasteRating = int.Parse(reader["TasteRating"].ToString()),
+                QuantityRating = int.Parse(reader["QuantityRating"].ToString()),
+                Comment = reader["Comment"].ToString(),
+                ReviewDate = DateTime.Parse(reader["ReviewDate"].ToString()),
+                Student = new Student
+                {
+                    IdStudent = int.Parse(reader["IdStudent"].ToString()),
+                    Username = reader["Username"].ToString()
+                },
+                Dishes = new Dish
+                {
+                    IdDish = int.Parse(reader["IdDish"].ToString()),
+                    Name = reader["DishName"].ToString()
+                },
+                Orders = new Orders
+                {
+                    IdOrder = int.Parse(reader["IdOrder"].ToString())
+                }
+
+            };
+
         }
     }
 }

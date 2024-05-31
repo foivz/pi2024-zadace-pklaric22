@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.btnOrderHistory = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnAllReviews = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOrderHistory
@@ -42,21 +42,22 @@
             this.btnOrderHistory.UseVisualStyleBackColor = true;
             this.btnOrderHistory.Click += new System.EventHandler(this.btnOrderHistory_Click);
             // 
-            // button2
+            // btnAllReviews
             // 
-            this.button2.Location = new System.Drawing.Point(135, 122);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 46);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Recenzije obroka";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnAllReviews.Location = new System.Drawing.Point(135, 122);
+            this.btnAllReviews.Name = "btnAllReviews";
+            this.btnAllReviews.Size = new System.Drawing.Size(157, 46);
+            this.btnAllReviews.TabIndex = 1;
+            this.btnAllReviews.Text = "Recenzije obroka";
+            this.btnAllReviews.UseVisualStyleBackColor = true;
+            this.btnAllReviews.Click += new System.EventHandler(this.btnAllReviews_Click);
             // 
             // FrmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 232);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnAllReviews);
             this.Controls.Add(this.btnOrderHistory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -73,6 +74,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnOrderHistory;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnAllReviews;
     }
 }
