@@ -27,6 +27,7 @@ namespace Studentaste
             this.Hide();
             frmOrderHistory.ShowDialog();
             this.Show();
+            
         }
 
         private void FrmMainMenu_Load(object sender, EventArgs e)

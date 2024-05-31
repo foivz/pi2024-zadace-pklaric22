@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Studentaste.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,4 +17,6 @@ namespace Studentaste.Models
         public Student Student { get; set; } 
         public Dish Dishes { get; set; }
     }
+
+
 }

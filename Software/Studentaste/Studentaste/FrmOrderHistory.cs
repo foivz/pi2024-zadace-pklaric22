@@ -60,6 +60,35 @@ namespace Studentaste
         {
             this.Hide();
             mainMenuForm.Show();
+
+        }
+
+        private void btnOpenReview_Click(object sender, EventArgs e)
+        {
+            if (dgvOrders.CurrentRow == null)
+            {
+                MessageBox.Show("Nema dostupnih narudžbi za recenziju.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Orders selectedOrder = dgvOrders.CurrentRow.DataBoundItem as Orders;
+            if (selectedOrder != null)
+            {
+                if (selectedOrder.OrderDate.AddHours(24) > DateTime.Now)
+                {
+                    FrmReview frmReview = new FrmReview(selectedOrder, LoggedStudent);
+                    frmReview.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Ne možete recenzirati narudžbu stariju od 24 sata.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
+            }
+            else
+            {
+                MessageBox.Show("Molimo odaberite narudžbu za recenziju.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

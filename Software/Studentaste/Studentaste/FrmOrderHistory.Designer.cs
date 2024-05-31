@@ -30,6 +30,7 @@
         {
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.btnReturnMainMenu = new System.Windows.Forms.Button();
+            this.btnOpenReview = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,11 +52,22 @@
             this.btnReturnMainMenu.UseVisualStyleBackColor = true;
             this.btnReturnMainMenu.Click += new System.EventHandler(this.btnReturnMainMenu_Click);
             // 
+            // btnOpenReview
+            // 
+            this.btnOpenReview.Location = new System.Drawing.Point(710, 408);
+            this.btnOpenReview.Name = "btnOpenReview";
+            this.btnOpenReview.Size = new System.Drawing.Size(84, 34);
+            this.btnOpenReview.TabIndex = 2;
+            this.btnOpenReview.Text = "Recenziraj!";
+            this.btnOpenReview.UseVisualStyleBackColor = true;
+            this.btnOpenReview.Click += new System.EventHandler(this.btnOpenReview_Click);
+            // 
             // FrmOrderHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 454);
+            this.Controls.Add(this.btnOpenReview);
             this.Controls.Add(this.btnReturnMainMenu);
             this.Controls.Add(this.dgvOrders);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -75,5 +87,6 @@
 
         private System.Windows.Forms.DataGridView dgvOrders;
         private System.Windows.Forms.Button btnReturnMainMenu;
+        private System.Windows.Forms.Button btnOpenReview;
     }
 }

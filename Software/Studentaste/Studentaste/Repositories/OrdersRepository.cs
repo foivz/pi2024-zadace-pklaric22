@@ -83,5 +83,46 @@ namespace Studentaste.Repositories
 
             return orders;
         }
+
+        public static List<OrderItems> GetOrderItems(int orderId)
+        {
+            var orderItemsList = new List<OrderItems>();
+
+            string sql = @"
+            SELECT oi.IdOrderItem, oi.Quantity, 
+                   d.IdDish, d.Name, d.Description, d.Price
+            FROM OrderItems oi
+            LEFT JOIN Dishes d ON oi.IdDish = d.IdDish
+            WHERE oi.IdOrder = " + orderId;
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            while (reader.Read())
+            {
+                OrderItems orderItems = CreateOrderItemObject(reader);
+                orderItemsList.Add(orderItems);
+            }
+            reader.Close();
+            DB.CloseConnection();
+            return orderItemsList;
+        }
+
+        private static OrderItems CreateOrderItemObject(SqlDataReader reader)
+        {
+            var orderItems = new OrderItems
+            {
+                IdOrderItem = int.Parse(reader["IdOrderItem"].ToString()),
+                Quantity = int.Parse(reader["Quantity"].ToString()),
+
+                Dish = new Dish
+                {
+                    IdDish = int.Parse(reader["IdDish"].ToString()),
+                    Name = reader["Name"].ToString(),
+                    Description = reader["Description"].ToString(),
+                    Price = float.Parse(reader["Price"].ToString())
+                }
+            };
+
+            return orderItems;
+        }
     }
 }
