@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dgvOrders = new System.Windows.Forms.DataGridView();
+            this.btnReturnMainMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -40,11 +41,22 @@
             this.dgvOrders.Size = new System.Drawing.Size(782, 382);
             this.dgvOrders.TabIndex = 0;
             // 
+            // btnReturnMainMenu
+            // 
+            this.btnReturnMainMenu.Location = new System.Drawing.Point(12, 408);
+            this.btnReturnMainMenu.Name = "btnReturnMainMenu";
+            this.btnReturnMainMenu.Size = new System.Drawing.Size(155, 34);
+            this.btnReturnMainMenu.TabIndex = 1;
+            this.btnReturnMainMenu.Text = "Povratak na Glavni izbornik";
+            this.btnReturnMainMenu.UseVisualStyleBackColor = true;
+            this.btnReturnMainMenu.Click += new System.EventHandler(this.btnReturnMainMenu_Click);
+            // 
             // FrmOrderHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 454);
+            this.Controls.Add(this.btnReturnMainMenu);
             this.Controls.Add(this.dgvOrders);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -62,5 +74,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvOrders;
+        private System.Windows.Forms.Button btnReturnMainMenu;
     }
 }

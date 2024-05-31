@@ -23,10 +23,10 @@ namespace Studentaste
 
         private void btnOrderHistory_Click(object sender, EventArgs e)
         {
-            Hide();
-            FrmOrderHistory frmOrderHistory = new FrmOrderHistory(LoggedStudent);
+            FrmOrderHistory frmOrderHistory = new FrmOrderHistory(LoggedStudent, this);
+            this.Hide();
             frmOrderHistory.ShowDialog();
-            Close();
+            this.Show();
         }
 
         private void FrmMainMenu_Load(object sender, EventArgs e)
