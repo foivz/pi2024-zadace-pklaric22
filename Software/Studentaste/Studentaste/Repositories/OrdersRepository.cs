@@ -1,10 +1,7 @@
-﻿using Studentaste.Models;
+﻿using DBLayer;
+using Studentaste.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DBLayer;
 using System.Data.SqlClient;
 
 namespace Studentaste.Repositories

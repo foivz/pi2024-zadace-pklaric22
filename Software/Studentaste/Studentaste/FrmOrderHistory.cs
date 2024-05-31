@@ -1,14 +1,6 @@
 ﻿using Studentaste.Models;
 using Studentaste.Repositories;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Studentaste
@@ -47,7 +39,7 @@ namespace Studentaste
             dgvOrders.Columns["TotalPrice"].Width = 100;
             dgvOrders.Columns["StudentUsername"].Width = 120;
 
-            dgvOrders.Columns["IdOrder"].DisplayIndex = 0; 
+            dgvOrders.Columns["IdOrder"].DisplayIndex = 0;
             dgvOrders.Columns["OrderDate"].DisplayIndex = 1;
             dgvOrders.Columns["TotalPrice"].DisplayIndex = 2;
             dgvOrders.Columns["Student"].Visible = false;
@@ -83,7 +75,7 @@ namespace Studentaste
                 {
                     MessageBox.Show("Ne možete recenzirati narudžbu stariju od 24 sata.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-               
+
             }
             else
             {

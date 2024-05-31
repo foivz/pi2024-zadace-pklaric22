@@ -30,13 +30,13 @@
         {
             this.dgvDishes = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.txtComment = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTasteRating = new System.Windows.Forms.TextBox();
+            this.txtQuantityRating = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSubmitReview = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDishes)).BeginInit();
             this.SuspendLayout();
@@ -48,6 +48,7 @@
             this.dgvDishes.Name = "dgvDishes";
             this.dgvDishes.Size = new System.Drawing.Size(315, 133);
             this.dgvDishes.TabIndex = 0;
+            this.dgvDishes.SelectionChanged += new System.EventHandler(this.dgvDishes_SelectionChanged);
             // 
             // label1
             // 
@@ -58,13 +59,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Komentar:";
             // 
-            // richTextBox1
+            // txtComment
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(15, 186);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(312, 58);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.txtComment.Location = new System.Drawing.Point(15, 186);
+            this.txtComment.Name = "txtComment";
+            this.txtComment.Size = new System.Drawing.Size(312, 58);
+            this.txtComment.TabIndex = 3;
+            this.txtComment.Text = "";
             // 
             // label2
             // 
@@ -84,19 +85,19 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Ocjena okusa:";
             // 
-            // textBox1
+            // txtTasteRating
             // 
-            this.textBox1.Location = new System.Drawing.Point(436, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(73, 20);
-            this.textBox1.TabIndex = 6;
+            this.txtTasteRating.Location = new System.Drawing.Point(436, 80);
+            this.txtTasteRating.Name = "txtTasteRating";
+            this.txtTasteRating.Size = new System.Drawing.Size(73, 20);
+            this.txtTasteRating.TabIndex = 6;
             // 
-            // textBox2
+            // txtQuantityRating
             // 
-            this.textBox2.Location = new System.Drawing.Point(436, 118);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(73, 20);
-            this.textBox2.TabIndex = 7;
+            this.txtQuantityRating.Location = new System.Drawing.Point(436, 118);
+            this.txtQuantityRating.Name = "txtQuantityRating";
+            this.txtQuantityRating.Size = new System.Drawing.Size(73, 20);
+            this.txtQuantityRating.TabIndex = 7;
             // 
             // label4
             // 
@@ -107,14 +108,15 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Ocjena količine:";
             // 
-            // button1
+            // btnSubmitReview
             // 
-            this.button1.Location = new System.Drawing.Point(365, 229);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 26);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Spremi recenziju!";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSubmitReview.Location = new System.Drawing.Point(365, 229);
+            this.btnSubmitReview.Name = "btnSubmitReview";
+            this.btnSubmitReview.Size = new System.Drawing.Size(128, 26);
+            this.btnSubmitReview.TabIndex = 9;
+            this.btnSubmitReview.Text = "Spremi recenziju!";
+            this.btnSubmitReview.UseVisualStyleBackColor = true;
+            this.btnSubmitReview.Click += new System.EventHandler(this.btnSubmitReview_Click);
             // 
             // button2
             // 
@@ -122,7 +124,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(127, 26);
             this.button2.TabIndex = 10;
-            this.button2.Text = "Ažuriraj recenziju";
+            this.button2.Text = "Obriši recenziju";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // FrmReview
@@ -131,13 +133,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 267);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSubmitReview);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtQuantityRating);
+            this.Controls.Add(this.txtTasteRating);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.txtComment);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvDishes);
             this.MaximizeBox = false;
@@ -157,13 +159,13 @@
 
         private System.Windows.Forms.DataGridView dgvDishes;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox txtComment;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTasteRating;
+        private System.Windows.Forms.TextBox txtQuantityRating;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSubmitReview;
         private System.Windows.Forms.Button button2;
     }
 }

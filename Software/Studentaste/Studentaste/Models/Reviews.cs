@@ -1,9 +1,4 @@
-﻿using Studentaste.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace Studentaste.Models
 {
@@ -14,9 +9,9 @@ namespace Studentaste.Models
         public int QuantityRating { get; set; }
         public string Comment { get; set; }
         public DateTime ReviewDate { get; set; }
-        public Student Student { get; set; } 
+        public Student Student { get; set; }
         public Dish Dishes { get; set; }
+        public Orders Orders { get; set; }
     }
-
 
 }

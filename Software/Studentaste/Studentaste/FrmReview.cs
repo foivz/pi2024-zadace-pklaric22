@@ -1,13 +1,7 @@
 ﻿using Studentaste.Models;
 using Studentaste.Repositories;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Studentaste
@@ -15,50 +9,188 @@ namespace Studentaste
     public partial class FrmReview : Form
     {
         private Orders order;
+        private Dish dish;
         public static Student LoggedStudent { get; set; }
         public Orders SelectedOrder { get => order; set => order = value; }
-        public FrmReview(Orders selectedOrder, Student student )
+
+        public FrmReview(Orders selectedOrder, Student student)
         {
             InitializeComponent();
             LoggedStudent = student;
             SelectedOrder = selectedOrder;
         }
-private void ShowOrders()
-{
-    if (order != null)
-    {
-        var Dish = OrdersRepository.GetOrderItems(order.IdOrder);
-        dgvDishes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-        dgvDishes.DataSource = Dish.Select(o => new
+
+        private void ShowOrders()
         {
-           
-            o.Quantity,
-            Dish = o.Dish.Name,
-            o.Dish.Price
-        }).ToList();
+            if (order != null)
+            {
+                var Dish = OrdersRepository.GetOrderItems(order.IdOrder);
+                dgvDishes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                dgvDishes.DataSource = Dish.Select(o => new
+                {
+                    o.Quantity,
+                    Dish = o.Dish.Name,
+                    o.Dish.Price
+                }).ToList();
 
-       dgvDishes.Columns["Quantity"].HeaderText = "Količina";
-       dgvDishes.Columns["Dish"].HeaderText = "Naziv obroka";
-       dgvDishes.Columns["Price"].HeaderText = "Cijena";
+                dgvDishes.Columns["Quantity"].HeaderText = "Količina";
+                dgvDishes.Columns["Dish"].HeaderText = "Naziv obroka";
+                dgvDishes.Columns["Price"].HeaderText = "Cijena";
 
-       if (dgvDishes.Columns["Dish"] != null)
-            dgvDishes.Columns["Dish"].DisplayIndex = 0;
-        if (dgvDishes.Columns["Name"] != null)
-            dgvDishes.Columns["Name"].DisplayIndex = 1;
-        if (dgvDishes.Columns["Price"] != null)
-            dgvDishes.Columns["Price"].DisplayIndex = 2;
-    }
-    else
-    {
-        MessageBox.Show("Narudžba je nepostojeća");
-    }
-    }
+                if (dgvDishes.Columns["Dish"] != null)
+                    dgvDishes.Columns["Dish"].DisplayIndex = 0;
+                if (dgvDishes.Columns["Name"] != null)
+                    dgvDishes.Columns["Name"].DisplayIndex = 1;
+                if (dgvDishes.Columns["Price"] != null)
+                    dgvDishes.Columns["Price"].DisplayIndex = 2;
+            }
+            else
+            {
+                MessageBox.Show("Narudžba je nepostojeća");
+            }
+        }
+
+        private Dish GetDishByName(string dishName)
+        {
+            var orderItems = OrdersRepository.GetOrderItems(order.IdOrder);
+            return orderItems.FirstOrDefault(oi => oi.Dish.Name == dishName)?.Dish;
+        }
+
+        private OrderItems GetOrderItemByDish(int orderId, int dishId)
+        {
+            var orderItems = OrdersRepository.GetOrderItems(orderId);
+            return orderItems.FirstOrDefault(oi => oi.Dish.IdDish == dishId);
+        }
 
 
         private void FrmReview_Load(object sender, EventArgs e)
         {
             ShowOrders();
+
+
+            if (dgvDishes.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvDishes.SelectedRows[0];
+                var dishName = selectedRow.Cells["Dish"].Value.ToString();
+                var dish = GetDishByName(dishName);
+
+                if (dish != null)
+                {
+                    PopulateReviewData(dish);
+                }
+            }
+            else if (dgvDishes.Rows.Count > 0)
+            {
+                dgvDishes.Rows[0].Selected = true;
+                var firstRow = dgvDishes.Rows[0];
+                var dishName = firstRow.Cells["Dish"].Value.ToString();
+                var dish = GetDishByName(dishName);
+
+                if (dish != null)
+                {
+                    PopulateReviewData(dish);
+                }
+            }
+        }
+        private void dgvDishes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvDishes.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvDishes.SelectedRows[0];
+                var dishName = selectedRow.Cells["Dish"].Value.ToString();
+                var dish = GetDishByName(dishName);
+
+                if (dish != null)
+                {
+                    PopulateReviewData(dish);
+                }
+            }
         }
 
+        private void PopulateReviewData(Dish dish)
+        {
+            var review = ReviewRepository.GetReview(order.IdOrder, dish.IdDish, LoggedStudent.IdStudent);
+            if (review != null)
+            {
+                txtTasteRating.Text = review.TasteRating.ToString();
+                txtQuantityRating.Text = review.QuantityRating.ToString();
+                txtComment.Text = review.Comment;
+            }
+            else
+            {
+                ClearTextBoxes();
+            }
+        }
+
+
+        private void btnSubmitReview_Click(object sender, EventArgs e)
+        {
+            if (dgvDishes.SelectedRows.Count > 0)
+            {
+                var selectedRow = dgvDishes.SelectedRows[0];
+                var dishName = selectedRow.Cells["Dish"].Value.ToString();
+                var dish = GetDishByName(dishName);
+
+                if (dish != null)
+                {
+                    var orderItem = GetOrderItemByDish(order.IdOrder, dish.IdDish);
+
+                    int tasteRating = int.Parse(txtTasteRating.Text);
+                    int quantityRating = int.Parse(txtQuantityRating.Text);
+                    string comment = txtComment.Text;
+
+                    var review = ReviewRepository.GetReview(order.IdOrder, dish.IdDish, LoggedStudent.IdStudent);
+
+                    if (review == null)
+                    {
+                        review = new Reviews
+                        {
+                            TasteRating = tasteRating,
+                            QuantityRating = quantityRating,
+                            Comment = comment,
+                            ReviewDate = DateTime.Now,
+                            Student = LoggedStudent,
+                            Dishes = dish,
+                            Orders = order
+                        };
+                        ReviewRepository.InsertReview(review);
+                        MessageBox.Show("Recenzija uspješno dodana");
+                    }
+                    else
+                    {
+
+                        DialogResult result = MessageBox.Show("Recenzija već postoji. Želite li ažurirati postojeću recenziju?", "Potvrda ažuriranja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            review.TasteRating = tasteRating;
+                            review.QuantityRating = quantityRating;
+                            review.Comment = comment;
+                            review.ReviewDate = DateTime.Now;
+                            ReviewRepository.UpdateReview(review);
+                            MessageBox.Show("Recenzija uspješno ažurirana.");
+                        }
+                        else
+                        {
+                            return;
+                        }
+                    }
+                    ClearTextBoxes();
+                }
+                else
+                {
+                    MessageBox.Show("Jelo nije pronadjeno.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Odaberite jelo za recenziranje.");
+            }
+        }
+        private void ClearTextBoxes()
+        {
+            txtTasteRating.Text = string.Empty;
+            txtQuantityRating.Text = string.Empty;
+            txtComment.Text = string.Empty;
+        }
     }
 }
