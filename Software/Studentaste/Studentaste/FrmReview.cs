@@ -125,6 +125,36 @@ namespace Studentaste
 
         private void btnSubmitReview_Click(object sender, EventArgs e)
         {
+
+            int tasteRating;
+            int quantityRating;
+
+            if (string.IsNullOrWhiteSpace(txtTasteRating.Text))
+            {
+                MessageBox.Show("Molimo unesite ocjenu okus.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+
+            if (string.IsNullOrWhiteSpace(txtQuantityRating.Text))
+            {
+                MessageBox.Show("Molimo unesite ocjenu za količinu.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!int.TryParse(txtTasteRating.Text, out tasteRating) || !int.TryParse(txtQuantityRating.Text, out quantityRating))
+            {
+                MessageBox.Show("Ocjene moraju biti cijeli brojevi.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            if (tasteRating < 1 || tasteRating > 5 || quantityRating < 1 || quantityRating > 5)
+            {
+                MessageBox.Show("Ocjene moraju biti u rasponu od 1 do 5.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (dgvDishes.SelectedRows.Count > 0)
             {
                 var selectedRow = dgvDishes.SelectedRows[0];
@@ -134,9 +164,6 @@ namespace Studentaste
                 if (dish != null)
                 {
                     var orderItem = GetOrderItemByDish(order.IdOrder, dish.IdDish);
-
-                    int tasteRating = int.Parse(txtTasteRating.Text);
-                    int quantityRating = int.Parse(txtQuantityRating.Text);
                     string comment = txtComment.Text;
 
                     var review = ReviewRepository.GetReview(order.IdOrder, dish.IdDish, LoggedStudent.IdStudent);
@@ -158,7 +185,6 @@ namespace Studentaste
                     }
                     else
                     {
-
                         DialogResult result = MessageBox.Show("Recenzija već postoji. Želite li ažurirati postojeću recenziju?", "Potvrda ažuriranja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result == DialogResult.Yes)
                         {
@@ -178,7 +204,7 @@ namespace Studentaste
                 }
                 else
                 {
-                    MessageBox.Show("Jelo nije pronadjeno.");
+                    MessageBox.Show("Jelo nije pronađeno.");
                 }
             }
             else
@@ -186,6 +212,7 @@ namespace Studentaste
                 MessageBox.Show("Odaberite jelo za recenziranje.");
             }
         }
+
         private void ClearTextBoxes()
         {
             txtTasteRating.Text = string.Empty;
