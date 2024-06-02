@@ -27,17 +27,12 @@ namespace Studentaste
             var orders = OrdersRepository.GetOrdersByStudentId(LoggedStudent.IdStudent);
             dgvOrders.DataSource = orders;
 
-            dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             dgvOrders.Columns["IdOrder"].HeaderText = "Broj narudžbe";
             dgvOrders.Columns["OrderDate"].HeaderText = "Datum i vrijeme narudžbe";
             dgvOrders.Columns["TotalPrice"].HeaderText = "Ukupna cijena";
             dgvOrders.Columns["StudentUsername"].HeaderText = "Korisničko ime";
-
-            dgvOrders.Columns["IdOrder"].Width = 100; // širina u pikselima
-            dgvOrders.Columns["OrderDate"].Width = 150;
-            dgvOrders.Columns["TotalPrice"].Width = 100;
-            dgvOrders.Columns["StudentUsername"].Width = 120;
 
             dgvOrders.Columns["IdOrder"].DisplayIndex = 0;
             dgvOrders.Columns["OrderDate"].DisplayIndex = 1;
@@ -68,7 +63,7 @@ namespace Studentaste
             {
                 if (selectedOrder.OrderDate.AddHours(24) > DateTime.Now)
                 {
-                    FrmReview frmReview = new FrmReview(selectedOrder, LoggedStudent);
+                    FrmReview frmReview = new FrmReview(selectedOrder, LoggedStudent, mainMenuForm);
                     frmReview.ShowDialog();
                 }
                 else

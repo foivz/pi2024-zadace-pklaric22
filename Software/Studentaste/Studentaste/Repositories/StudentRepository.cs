@@ -20,7 +20,13 @@ namespace Studentaste.Repositories
             }
             return FetchStudent(sql);
         }
-
+        public static void UpdateBodovi(int studentId, int noviBodovi)
+        {
+            string sql = $"UPDATE Students SET Bodovi = Bodovi + {noviBodovi} WHERE IdStudent = {studentId}";
+            DB.OpenConnection();
+            DB.ExecuteCommand(sql);
+            DB.CloseConnection();
+        }
 
         private static Student FetchStudent(string sql)
         {
@@ -46,6 +52,7 @@ namespace Studentaste.Repositories
             string lastName = reader["LastName"].ToString();
             string username = reader["Username"].ToString();
             string password = reader["Password"].ToString();
+            int bodovi = int.Parse(reader["Bodovi"].ToString());
 
             var student = new Student
             {
@@ -53,7 +60,8 @@ namespace Studentaste.Repositories
                 FirstName = firstName,
                 LastName = lastName,
                 Username = username,
-                Password = password
+                Password = password,
+                Bodovi = bodovi
             };
             return student;
         }

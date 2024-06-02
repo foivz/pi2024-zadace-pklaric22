@@ -10,14 +10,18 @@ namespace Studentaste
     {
         private Orders order;
         private Dish dish;
+        public int bodovi;
+        private FrmMainMenu mainMenu;
         public static Student LoggedStudent { get; set; }
         public Orders SelectedOrder { get => order; set => order = value; }
 
-        public FrmReview(Orders selectedOrder, Student student)
+        public FrmReview(Orders selectedOrder, Student student, FrmMainMenu mainMenu)
         {
             InitializeComponent();
             LoggedStudent = student;
             SelectedOrder = selectedOrder;
+            this.mainMenu = mainMenu;
+            bodovi = 0;
         }
 
         private void ShowOrders()
@@ -181,7 +185,11 @@ namespace Studentaste
                             Orders = order
                         };
                         ReviewRepository.InsertReview(review);
-                        MessageBox.Show("Recenzija uspješno dodana");
+                        bodovi += 5;
+                        StudentRepository.UpdateBodovi(LoggedStudent.IdStudent, 5);
+                        LoggedStudent.Bodovi += 5;
+                        mainMenu.RefreshWelcomeLabel();
+                        MessageBox.Show("Recenzija uspješno dodana! Ostvarili ste 5 dodatnih bodova.");
                     }
                     else
                     {

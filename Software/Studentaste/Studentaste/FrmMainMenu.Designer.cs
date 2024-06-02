@@ -30,11 +30,13 @@
         {
             this.btnOrderHistory = new System.Windows.Forms.Button();
             this.btnAllReviews = new System.Windows.Forms.Button();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.lblWelcome1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnOrderHistory
             // 
-            this.btnOrderHistory.Location = new System.Drawing.Point(135, 56);
+            this.btnOrderHistory.Location = new System.Drawing.Point(135, 75);
             this.btnOrderHistory.Name = "btnOrderHistory";
             this.btnOrderHistory.Size = new System.Drawing.Size(157, 46);
             this.btnOrderHistory.TabIndex = 0;
@@ -44,7 +46,7 @@
             // 
             // btnAllReviews
             // 
-            this.btnAllReviews.Location = new System.Drawing.Point(135, 122);
+            this.btnAllReviews.Location = new System.Drawing.Point(135, 137);
             this.btnAllReviews.Name = "btnAllReviews";
             this.btnAllReviews.Size = new System.Drawing.Size(157, 46);
             this.btnAllReviews.TabIndex = 1;
@@ -52,11 +54,30 @@
             this.btnAllReviews.UseVisualStyleBackColor = true;
             this.btnAllReviews.Click += new System.EventHandler(this.btnAllReviews_Click);
             // 
+            // lblWelcome
+            // 
+            this.lblWelcome.AutoSize = true;
+            this.lblWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblWelcome.Location = new System.Drawing.Point(61, 44);
+            this.lblWelcome.Name = "lblWelcome";
+            this.lblWelcome.Size = new System.Drawing.Size(0, 17);
+            this.lblWelcome.TabIndex = 2;
+            // 
+            // lblWelcome1
+            // 
+            this.lblWelcome1.AutoSize = true;
+            this.lblWelcome1.Location = new System.Drawing.Point(12, 33);
+            this.lblWelcome1.Name = "lblWelcome1";
+            this.lblWelcome1.Size = new System.Drawing.Size(0, 13);
+            this.lblWelcome1.TabIndex = 3;
+            // 
             // FrmMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(423, 232);
+            this.Controls.Add(this.lblWelcome1);
+            this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.btnAllReviews);
             this.Controls.Add(this.btnOrderHistory);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -68,6 +89,7 @@
             this.Text = "Glavni izbornik";
             this.Load += new System.EventHandler(this.FrmMainMenu_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -75,5 +97,7 @@
 
         private System.Windows.Forms.Button btnOrderHistory;
         private System.Windows.Forms.Button btnAllReviews;
+        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Label lblWelcome1;
     }
 }

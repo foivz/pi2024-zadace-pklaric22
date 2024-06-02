@@ -114,5 +114,96 @@ namespace Studentaste.Repositories
             };
 
         }
+
+        public static List<Reviews> GetReviewByStudentId(int studentId)
+        {
+            string sql = $@"
+        SELECT 
+            r.IdReview,
+            r.TasteRating,
+            r.QuantityRating,
+            r.Comment,
+            r.ReviewDate,
+            r.IdStudent,
+            r.IdDish,
+            d.Name AS DishName,
+            r.IdOrder,
+            s.IdStudent,
+            s.Username
+        FROM Reviews r
+        JOIN Dishes d ON r.IdDish = d.IdDish
+        JOIN Students s ON r.IdStudent = s.IdStudent
+        WHERE r.IdStudent = {studentId}";
+
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            List<Reviews> reviews = new List<Reviews>();
+
+            while (reader.Read())
+            {
+                Reviews review = new Reviews
+                {
+                    IdReview = (int)reader["IdReview"],
+                    TasteRating = (int)reader["TasteRating"],
+                    QuantityRating = (int)reader["QuantityRating"],
+                    Comment = reader["Comment"].ToString(),
+                    ReviewDate = (DateTime)reader["ReviewDate"],
+                    Student = new Student { IdStudent = (int)reader["IdStudent"], Username = reader["Username"].ToString() },
+                    Dishes = new Dish { IdDish = (int)reader["IdDish"], Name = reader["DishName"].ToString() },
+                    Orders = new Orders { IdOrder = (int)reader["IdOrder"] }
+                };
+                reviews.Add(review);
+            }
+
+            reader.Close();
+            DB.CloseConnection();
+            return reviews;
+        }
+
+        public static List<Reviews> GetReviewsByDishName(string dishName)
+        {
+            string sql = $@"
+        SELECT 
+            r.IdReview,
+            r.TasteRating,
+            r.QuantityRating,
+            r.Comment,
+            r.ReviewDate,
+            r.IdStudent,
+            r.IdDish,
+            d.Name AS DishName,
+            r.IdOrder,
+            s.IdStudent,
+            s.Username
+        FROM Reviews r
+        JOIN Dishes d ON r.IdDish = d.IdDish
+        JOIN Students s ON r.IdStudent = s.IdStudent
+        WHERE d.Name LIKE '%{dishName}%'";
+
+            DB.OpenConnection();
+            var reader = DB.GetDataReader(sql);
+            List<Reviews> reviews = new List<Reviews>();
+
+            while (reader.Read())
+            {
+                Reviews review = new Reviews
+                {
+                    IdReview = (int)reader["IdReview"],
+                    TasteRating = (int)reader["TasteRating"],
+                    QuantityRating = (int)reader["QuantityRating"],
+                    Comment = reader["Comment"].ToString(),
+                    ReviewDate = (DateTime)reader["ReviewDate"],
+                    Student = new Student { IdStudent = (int)reader["IdStudent"], Username = reader["Username"].ToString() },
+                    Dishes = new Dish { IdDish = (int)reader["IdDish"], Name = reader["DishName"].ToString() },
+                    Orders = new Orders { IdOrder = (int)reader["IdOrder"] }
+                };
+                reviews.Add(review);
+            }
+
+            reader.Close();
+            DB.CloseConnection();
+            return reviews;
+        }
+
     }
 }
