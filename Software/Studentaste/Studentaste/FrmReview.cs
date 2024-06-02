@@ -130,14 +130,14 @@ namespace Studentaste
         {
 
 
-            if (string.IsNullOrWhiteSpace(txtTasteRating.Text))
+            if (txtTasteRating.Text == "")
             {
                 MessageBox.Show("Molimo unesite ocjenu okus.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
 
             }
 
-            if (string.IsNullOrWhiteSpace(txtQuantityRating.Text))
+            if (txtQuantityRating.Text == "")
             {
                 MessageBox.Show("Molimo unesite ocjenu za količinu.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
