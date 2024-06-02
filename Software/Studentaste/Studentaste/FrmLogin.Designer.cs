@@ -34,6 +34,7 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblLogo = new System.Windows.Forms.Label();
+            this.btnHelp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblUsername
@@ -89,11 +90,22 @@
             this.lblLogo.TabIndex = 5;
             this.lblLogo.Text = "Studentaste";
             // 
+            // btnHelp
+            // 
+            this.btnHelp.Location = new System.Drawing.Point(12, 128);
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(25, 22);
+            this.btnHelp.TabIndex = 6;
+            this.btnHelp.Text = "?";
+            this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 160);
+            this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.lblLogo);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPassword);
@@ -121,6 +133,7 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblLogo;
+        private System.Windows.Forms.Button btnHelp;
     }
 }
 

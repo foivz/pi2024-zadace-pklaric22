@@ -49,6 +49,11 @@ namespace Studentaste
         {
 
         }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Username: pklaric22 - Password: pklaric22 \n Username: mvukosav - Password: mvukosav \n Username: mbesednik - Password: mbesednik", "Login info ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
 
