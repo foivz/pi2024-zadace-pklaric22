@@ -8,7 +8,7 @@ namespace Studentaste
     public partial class FrmOrderHistory : Form
     {
         public static Student LoggedStudent { get; set; }
-        private FrmMainMenu mainMenuForm; // Referenca na FrmMainMenu
+        private readonly FrmMainMenu mainMenuForm; // Referenca na FrmMainMenu
 
         public FrmOrderHistory(Student student, FrmMainMenu mainMenu)
         {
@@ -58,8 +58,7 @@ namespace Studentaste
                 return;
             }
 
-            Orders selectedOrder = dgvOrders.CurrentRow.DataBoundItem as Orders;
-            if (selectedOrder != null)
+            if (dgvOrders.CurrentRow.DataBoundItem is Orders selectedOrder)
             {
                 if (selectedOrder.OrderDate.AddHours(24) > DateTime.Now)
                 {

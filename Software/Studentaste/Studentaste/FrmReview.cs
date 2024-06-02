@@ -9,9 +9,8 @@ namespace Studentaste
     public partial class FrmReview : Form
     {
         private Orders order;
-        private Dish dish;
         public int bodovi;
-        private FrmMainMenu mainMenu;
+        private readonly FrmMainMenu mainMenu;
         public static Student LoggedStudent { get; set; }
         public Orders SelectedOrder { get => order; set => order = value; }
 
@@ -130,8 +129,6 @@ namespace Studentaste
         private void BtnSubmitReviewClick(object sender, EventArgs e)
         {
 
-            int tasteRating;
-            int quantityRating;
 
             if (string.IsNullOrWhiteSpace(txtTasteRating.Text))
             {
@@ -146,7 +143,7 @@ namespace Studentaste
                 return;
             }
 
-            if (!int.TryParse(txtTasteRating.Text, out tasteRating) || !int.TryParse(txtQuantityRating.Text, out quantityRating))
+            if (!int.TryParse(txtTasteRating.Text, out int tasteRating) || !int.TryParse(txtQuantityRating.Text, out int quantityRating))
             {
                 MessageBox.Show("Ocjene moraju biti cijeli brojevi.", "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -167,7 +164,7 @@ namespace Studentaste
 
                 if (dish != null)
                 {
-                    var orderItem = GetOrderItemByDish(order.IdOrder, dish.IdDish);
+                    GetOrderItemByDish(order.IdOrder, dish.IdDish);
                     string comment = txtComment.Text;
 
                     var review = ReviewRepository.GetReview(order.IdOrder, dish.IdDish, LoggedStudent.IdStudent);

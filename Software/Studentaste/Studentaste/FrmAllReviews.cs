@@ -8,7 +8,7 @@ namespace Studentaste
     public partial class FrmAllReviews : Form
     {
         public static Student LoggedStudent { get; set; }
-        private FrmMainMenu mainMenuForm;
+        private readonly FrmMainMenu mainMenuForm;
         public FrmAllReviews(Student student, FrmMainMenu mainMenu)
         {
             InitializeComponent();

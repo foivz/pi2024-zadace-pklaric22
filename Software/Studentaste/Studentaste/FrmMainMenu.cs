@@ -9,7 +9,6 @@ namespace Studentaste
     public partial class FrmMainMenu : Form
     {
         public static Student LoggedStudent { get; set; }
-        private int bodovi;
         public FrmMainMenu(int studentId)
         {
             InitializeComponent();
