@@ -42,7 +42,7 @@
             this.btnOrderHistory.TabIndex = 0;
             this.btnOrderHistory.Text = "Povijest narudžbi";
             this.btnOrderHistory.UseVisualStyleBackColor = true;
-            this.btnOrderHistory.Click += new System.EventHandler(this.btnOrderHistory_Click);
+            this.btnOrderHistory.Click += new System.EventHandler(this.BtnOrderHistoryClick);
             // 
             // btnAllReviews
             // 
@@ -52,7 +52,7 @@
             this.btnAllReviews.TabIndex = 1;
             this.btnAllReviews.Text = "Recenzije obroka";
             this.btnAllReviews.UseVisualStyleBackColor = true;
-            this.btnAllReviews.Click += new System.EventHandler(this.btnAllReviews_Click);
+            this.btnAllReviews.Click += new System.EventHandler(this.BtnAllReviewsClick);
             // 
             // lblWelcome
             // 
@@ -87,7 +87,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glavni izbornik";
-            this.Load += new System.EventHandler(this.FrmMainMenu_Load);
+            this.Load += new System.EventHandler(this.FrmMainMenuLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

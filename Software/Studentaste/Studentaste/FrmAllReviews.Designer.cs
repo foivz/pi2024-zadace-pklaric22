@@ -61,7 +61,7 @@
             this.btnReturnMainMenu2.TabIndex = 1;
             this.btnReturnMainMenu2.Text = "Povratak na Glavni izbornik";
             this.btnReturnMainMenu2.UseVisualStyleBackColor = true;
-            this.btnReturnMainMenu2.Click += new System.EventHandler(this.btnReturnMainMenu2_Click);
+            this.btnReturnMainMenu2.Click += new System.EventHandler(this.BtnReturnMainMenu2Click);
             // 
             // btnMyReviews
             // 
@@ -71,7 +71,7 @@
             this.btnMyReviews.TabIndex = 2;
             this.btnMyReviews.Text = "Moje recenzije";
             this.btnMyReviews.UseVisualStyleBackColor = true;
-            this.btnMyReviews.Click += new System.EventHandler(this.btnMyReviews_Click);
+            this.btnMyReviews.Click += new System.EventHandler(this.BtnMyReviewsClick);
             // 
             // btnShowAll
             // 
@@ -81,7 +81,7 @@
             this.btnShowAll.TabIndex = 3;
             this.btnShowAll.Text = "Prikaži sve";
             this.btnShowAll.UseVisualStyleBackColor = true;
-            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            this.btnShowAll.Click += new System.EventHandler(this.BtnShowAllClick);
             // 
             // lblSearchDish
             // 
@@ -107,7 +107,7 @@
             this.btnSearchDish.TabIndex = 6;
             this.btnSearchDish.Text = "Pretraži!";
             this.btnSearchDish.UseVisualStyleBackColor = true;
-            this.btnSearchDish.Click += new System.EventHandler(this.btnSearchDish_Click);
+            this.btnSearchDish.Click += new System.EventHandler(this.BtnSearchDishClick);
             // 
             // FrmAllReviews
             // 
@@ -128,7 +128,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sve recenzije";
-            this.Load += new System.EventHandler(this.FrmAllReviews_Load);
+            this.Load += new System.EventHandler(this.FrmAllReviewsLoad);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllReviews)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

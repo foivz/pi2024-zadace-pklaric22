@@ -67,7 +67,7 @@ namespace Studentaste
         }
 
 
-        private void FrmReview_Load(object sender, EventArgs e)
+        private void FrmReviewLoad(object sender, EventArgs e)
         {
             ShowOrders();
 
@@ -96,7 +96,7 @@ namespace Studentaste
                 }
             }
         }
-        private void dgvDishes_SelectionChanged(object sender, EventArgs e)
+        private void DgvDishesSelectionChanged(object sender, EventArgs e)
         {
             if (dgvDishes.SelectedRows.Count > 0)
             {
@@ -127,7 +127,7 @@ namespace Studentaste
         }
 
 
-        private void btnSubmitReview_Click(object sender, EventArgs e)
+        private void BtnSubmitReviewClick(object sender, EventArgs e)
         {
 
             int tasteRating;
@@ -228,7 +228,7 @@ namespace Studentaste
             txtComment.Text = string.Empty;
         }
 
-        private void btnDeleteReview_Click(object sender, EventArgs e)
+        private void BtnDeleteReviewClick(object sender, EventArgs e)
         {
             if (dgvDishes.SelectedRows.Count > 0)
             {

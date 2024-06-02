@@ -16,7 +16,7 @@ namespace Studentaste
             mainMenuForm = mainMenu;
         }
 
-        private void FrmAllReviews_Load(object sender, EventArgs e)
+        private void FrmAllReviewsLoad(object sender, EventArgs e)
         {
             ShowReviews();
         }
@@ -91,19 +91,19 @@ namespace Studentaste
         }
 
 
-        private void btnReturnMainMenu2_Click(object sender, EventArgs e)
+        private void BtnReturnMainMenu2Click(object sender, EventArgs e)
         {
             this.Hide();
             mainMenuForm.Show();
         }
 
 
-        private void btnMyReviews_Click(object sender, EventArgs e)
+        private void BtnMyReviewsClick(object sender, EventArgs e)
         {
             ShowReviewsByStudentId();
         }
 
-        private void btnShowAll_Click(object sender, EventArgs e)
+        private void BtnShowAllClick(object sender, EventArgs e)
         {
             ShowReviews();
         }
@@ -147,7 +147,7 @@ namespace Studentaste
         }
 
 
-        private void btnSearchDish_Click(object sender, EventArgs e)
+        private void BtnSearchDishClick(object sender, EventArgs e)
         {
             string dishName = txtSearchDish.Text.Trim();
             ShowReviewsByDishName(dishName);

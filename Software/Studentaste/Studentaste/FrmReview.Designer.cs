@@ -54,7 +54,7 @@
             this.dgvDishes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDishes.Size = new System.Drawing.Size(315, 133);
             this.dgvDishes.TabIndex = 0;
-            this.dgvDishes.SelectionChanged += new System.EventHandler(this.dgvDishes_SelectionChanged);
+            this.dgvDishes.SelectionChanged += new System.EventHandler(this.DgvDishesSelectionChanged);
             // 
             // label1
             // 
@@ -122,7 +122,7 @@
             this.btnSubmitReview.TabIndex = 9;
             this.btnSubmitReview.Text = "Spremi recenziju!";
             this.btnSubmitReview.UseVisualStyleBackColor = true;
-            this.btnSubmitReview.Click += new System.EventHandler(this.btnSubmitReview_Click);
+            this.btnSubmitReview.Click += new System.EventHandler(this.BtnSubmitReviewClick);
             // 
             // btnDeleteReview
             // 
@@ -132,7 +132,7 @@
             this.btnDeleteReview.TabIndex = 10;
             this.btnDeleteReview.Text = "Obriši recenziju";
             this.btnDeleteReview.UseVisualStyleBackColor = true;
-            this.btnDeleteReview.Click += new System.EventHandler(this.btnDeleteReview_Click);
+            this.btnDeleteReview.Click += new System.EventHandler(this.BtnDeleteReviewClick);
             // 
             // FrmReview
             // 
@@ -155,7 +155,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recenzija narudžbe";
-            this.Load += new System.EventHandler(this.FrmReview_Load);
+            this.Load += new System.EventHandler(this.FrmReviewLoad);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDishes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

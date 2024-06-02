@@ -56,7 +56,7 @@
             this.btnReturnMainMenu.TabIndex = 1;
             this.btnReturnMainMenu.Text = "Povratak na Glavni izbornik";
             this.btnReturnMainMenu.UseVisualStyleBackColor = true;
-            this.btnReturnMainMenu.Click += new System.EventHandler(this.btnReturnMainMenu_Click);
+            this.btnReturnMainMenu.Click += new System.EventHandler(this.BtnReturnMainMenuClick);
             // 
             // btnOpenReview
             // 
@@ -66,7 +66,7 @@
             this.btnOpenReview.TabIndex = 2;
             this.btnOpenReview.Text = "Recenziraj!";
             this.btnOpenReview.UseVisualStyleBackColor = true;
-            this.btnOpenReview.Click += new System.EventHandler(this.btnOpenReview_Click);
+            this.btnOpenReview.Click += new System.EventHandler(this.BtnOpenReviewClick);
             // 
             // FrmOrderHistory
             // 
@@ -83,7 +83,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Povijest narudžbi";
-            this.Load += new System.EventHandler(this.FrmOrderHistory_Load);
+            this.Load += new System.EventHandler(this.FrmOrderHistoryLoad);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
 

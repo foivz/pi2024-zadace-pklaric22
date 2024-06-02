@@ -17,7 +17,7 @@ namespace Studentaste
             mainMenuForm = mainMenu;
         }
 
-        private void FrmOrderHistory_Load(object sender, EventArgs e)
+        private void FrmOrderHistoryLoad(object sender, EventArgs e)
         {
             ShowOrders();
         }
@@ -43,14 +43,14 @@ namespace Studentaste
             dgvOrders.Columns["OrderDate"].DefaultCellStyle.Format = "dd.MM.yyyy HH:mm:ss";
         }
 
-        private void btnReturnMainMenu_Click(object sender, EventArgs e)
+        private void BtnReturnMainMenuClick(object sender, EventArgs e)
         {
             this.Hide();
             mainMenuForm.Show();
 
         }
 
-        private void btnOpenReview_Click(object sender, EventArgs e)
+        private void BtnOpenReviewClick(object sender, EventArgs e)
         {
             if (dgvOrders.CurrentRow == null)
             {

@@ -14,7 +14,14 @@ namespace Studentaste.Models
         {
             get
             {
-                return Student != null ? Student.Username : "N/A";
+                if (Student != null)
+                {
+                    return Student.Username;
+                }
+                else
+                {
+                    return "N/A";
+                }
             }
         }
     }

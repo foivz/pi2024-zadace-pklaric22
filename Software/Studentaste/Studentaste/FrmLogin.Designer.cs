@@ -77,7 +77,7 @@
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Prijavi se";
             this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.BtnLoginClick);
             // 
             // lblLogo
             // 
@@ -107,7 +107,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prijava";
-            this.Load += new System.EventHandler(this.FrmLogin_Load);
+            this.Load += new System.EventHandler(this.FrmLoginLoad);
             this.ResumeLayout(false);
             this.PerformLayout();
 

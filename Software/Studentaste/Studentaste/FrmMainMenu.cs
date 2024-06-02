@@ -16,7 +16,7 @@ namespace Studentaste
             LoggedStudent = StudentRepository.GetStudent(studentId.ToString());
         }
 
-        private void btnOrderHistory_Click(object sender, EventArgs e)
+        private void BtnOrderHistoryClick(object sender, EventArgs e)
         {
             FrmOrderHistory frmOrderHistory = new FrmOrderHistory(LoggedStudent, this);
             this.Hide();
@@ -30,13 +30,13 @@ namespace Studentaste
             lblWelcome.Text = $"Dobrodošli, {LoggedStudent.FirstName} {LoggedStudent.LastName}. Broj vaših bodova: {LoggedStudent.Bodovi}";
         }
 
-        private void FrmMainMenu_Load(object sender, EventArgs e)
+        private void FrmMainMenuLoad(object sender, EventArgs e)
         {
             string imePrezime = $"{LoggedStudent.FirstName} {LoggedStudent.LastName}";
             lblWelcome.Text = $"Dobrodošli, {imePrezime}. Broj vaših bodova: {LoggedStudent.Bodovi}";
         }
 
-        private void btnAllReviews_Click(object sender, EventArgs e)
+        private void BtnAllReviewsClick(object sender, EventArgs e)
         {
             FrmAllReviews frmAllReviews = new FrmAllReviews(LoggedStudent, this);
             this.Hide();

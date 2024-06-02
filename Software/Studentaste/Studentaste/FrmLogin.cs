@@ -15,7 +15,7 @@ namespace Studentaste
 
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void BtnLoginClick(object sender, EventArgs e)
         {
             if (txtUsername.Text == "")
             {
@@ -45,7 +45,7 @@ namespace Studentaste
             }
         }
 
-        private void FrmLogin_Load(object sender, EventArgs e)
+        private void FrmLoginLoad(object sender, EventArgs e)
         {
 
         }

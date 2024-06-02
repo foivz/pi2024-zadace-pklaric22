@@ -12,12 +12,7 @@ namespace Studentaste.Repositories
         {
             Orders orders = null;
 
-            string sql = @"
-                SELECT o.IdOrder, o.OrderDate, o.TotalPrice, 
-                       s.IdStudent, s.Username
-                FROM Orders o
-                LEFT JOIN Students s ON o.IdStudent = s.IdStudent
-                WHERE o.IdOrder = @id";
+            string sql = $"SELECT o.IdOrder, o.OrderDate, o.TotalPrice, s.IdStudent, s.Username " + "FROM Orders o " + "JOIN Students s ON o.IdStudent = s.IdStudent " + $"WHERE o.IdOrder = {id}";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
             if (reader.HasRows)
@@ -35,12 +30,7 @@ namespace Studentaste.Repositories
         {
             var orderList = new List<Orders>();
 
-            string sql = @"
-                SELECT o.IdOrder, o.OrderDate, o.TotalPrice, 
-                       s.IdStudent, s.Username
-                FROM Orders o
-                LEFT JOIN Students s ON o.IdStudent = s.IdStudent
-                WHERE o.IdStudent = " + studentId;  // Filtriranje po studentId
+            string sql = $"SELECT o.IdOrder, o.OrderDate, o.TotalPrice, " + "s.IdStudent, s.Username " + "FROM Orders o " + "JOIN Students s ON o.IdStudent = s.IdStudent " + $"WHERE o.IdStudent = {studentId}";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
             while (reader.Read())
@@ -85,12 +75,7 @@ namespace Studentaste.Repositories
         {
             var orderItemsList = new List<OrderItems>();
 
-            string sql = @"
-            SELECT oi.IdOrderItem, oi.Quantity, 
-                   d.IdDish, d.Name, d.Description, d.Price
-            FROM OrderItems oi
-            LEFT JOIN Dishes d ON oi.IdDish = d.IdDish
-            WHERE oi.IdOrder = " + orderId;
+            string sql = $"SELECT oi.IdOrderItem, oi.Quantity, " + "d.IdDish, d.Name, d.Description, d.Price " + "FROM OrderItems oi " + "JOIN Dishes d ON oi.IdDish = d.IdDish " + $"WHERE oi.IdOrder = {orderId}";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
             while (reader.Read())
