@@ -21,7 +21,7 @@ Ime i prezime | pklaric22@student.foi.hr | 0016158515 | pklaric22
    JMBAG: 16158517  
    Password: mbesednik  
 
-
+NAPOMENA ZA APLIKACIJU: Na nekim narudžbama datum je stavljen u budućnost ( konkretno 7. i 8. mjesec) kako bi se mogla provjeriti funkcionalnost uvjeta da nardužba ne smije biti starija od 24 sata
 ## Opis domene
 Odabir jela u studentskoj menzi ponekad može biti izazovan zbog širokog izbora menija. Svi studenti, a pogotovo brucoši su se nekada našli u situaciji da zbog nesigurnosti da probaju neko novo jelo konstantno naručuju ista jela. Pomoću aplikacije Studentaste studenti će moći vidjeti kako su njihovi kolege ocjenili različita jela te će im to dati novu perspektivu i olakšati odabir jela u menzi. Također, redovi u menzi su često vrlo dugi. Studentaste će studentima omogućiti stvaranje a la carte narudžbi kroz aplikaciju što će poboljšati protok narudžbi i smanjiti duge i naporne redove čekanja za naplatu na blagajni.
 
